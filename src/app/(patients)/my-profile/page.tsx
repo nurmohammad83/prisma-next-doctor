@@ -1,6 +1,6 @@
-const MyProfile = () => {
+const PatientProfile = () => {
   return (
-    <div>MyProfile</div>
+    <div>PatientProfile</div>
   )
 }
-export default MyProfile
+export default PatientProfile
