@@ -1,5 +1,5 @@
 import './globals.css'
-import StyledComponentsRegistry from '../lib/AntdRegistry'
+import Providers from '@/lib/Providers'
 export default function RootLayout({
   children,
 }: {
@@ -7,9 +7,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <StyledComponentsRegistry>
+      <Providers>
       <body>{children}</body>
-      </StyledComponentsRegistry>
+      </Providers>
     </html>
   )
 }
