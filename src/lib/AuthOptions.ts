@@ -31,13 +31,15 @@ export const authOptions: AuthOptions = {
             process.env.JWT_SECRET!
           );
           console.log(data);
-          return {
-            ...data,
-            ...verifyToken,
-          };
-        } catch (error) {
+          if (res.ok && data) {
+            return {
+              ...data,
+              ...verifyToken,
+            };
+          }
+        } catch (error: any) {
           console.log(error);
-          return null;
+          throw new Error(error.message);
         }
       },
     }),
@@ -58,4 +60,8 @@ export const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
   },
   secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: "/login",
+    error: "/",
+  },
 };
