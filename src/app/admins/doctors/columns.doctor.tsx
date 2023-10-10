@@ -2,7 +2,11 @@
 import Link from 'next/link'
 import { EllipsisOutlined } from "@ant-design/icons";
 import { Button, Dropdown, MenuProps } from "antd";
+import { deleteDoctor } from '@/services/doctors/delete-doctor';
 
+const handelDelete =async(id:string)=>{
+ await deleteDoctor(id)
+}
 const getMenuItems =(id:string): MenuProps['items'] => [
   {
     key: '1',
@@ -19,7 +23,7 @@ const getMenuItems =(id:string): MenuProps['items'] => [
     key: '3',
     label: <span>Delete</span>,
     onClick:()=>{
-      console.log('Delete')
+      handelDelete(id)
     }
   },
 ];
