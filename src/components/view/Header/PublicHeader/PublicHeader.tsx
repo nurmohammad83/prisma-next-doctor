@@ -10,12 +10,12 @@ const PublicHeader = () => {
         {
           key: '2',
           label: "Services",
-          href: "/services",
+          href: "/available-services",
         },
         {
           key: '3',
           label: "Doctors",
-          href: "/doctors",
+          href: "/available-doctors",
         },
         {
           key: '4',

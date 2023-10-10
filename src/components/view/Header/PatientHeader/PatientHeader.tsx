@@ -1,6 +1,9 @@
 import Navbar from "@/components/ui/Navbar/Navbar";
+import { authOptions } from "@/app/lib/AuthOptions";
+import { getServerSession } from "next-auth";
 
-const PatientHeader = () => {
+const PatientHeader = async () => {
+  const session = await getServerSession(authOptions)
     const items = [
         {
           key: '1',
@@ -19,7 +22,7 @@ const PatientHeader = () => {
         },
       ];
   return (
-    <Navbar items={items}/>
+    <Navbar items={items} session={session ? true : false }/>
   )
 }
 export default PatientHeader

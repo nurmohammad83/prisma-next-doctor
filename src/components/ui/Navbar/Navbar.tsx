@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { showSidebarDrawer } from "@/redux/slices/sidebarSlice";
 import { MenuOutlined } from "@ant-design/icons";
 import { Button, Drawer, Layout, Menu, Typography } from "antd";
-// import { signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -20,7 +20,6 @@ const Navbar = ({
   hasSider?: boolean;
   session?: boolean;
 }) => {
-  console.log(session, "session");
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -78,9 +77,9 @@ const Navbar = ({
           {session ? (
             <Button
               type="primary"
-              // onClick={() => {
-              //   signOut();
-              // }}
+              onClick={() => {
+                signOut();
+              }}
             >
               Sign Out
             </Button>

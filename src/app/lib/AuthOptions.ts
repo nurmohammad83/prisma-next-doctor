@@ -18,7 +18,7 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials, req) {
         try {
-          const res = await fetch("http://localhost:3030/api/auth/login", {
+          const res = await fetch("http://localhost:4000/api/v1/auth/login", {
             method: "POST",
             body: JSON.stringify(credentials),
             headers: {
@@ -26,11 +26,12 @@ export const authOptions: AuthOptions = {
             },
           });
           const { data } = await res.json();
+          console.log(data);
           const verifyToken: any = jwtHelpers.verifyToken(
             data?.accessToken,
             process.env.JWT_SECRET!
           );
-          console.log(data);
+
           if (res.ok && data) {
             return {
               ...data,
