@@ -12,7 +12,7 @@ const AvailableServicePage = async () => {
     {
       data.map((availableService:any)=>{
         return (
-         <Link href={`/available-service/${availableService.id}`} key={availableService.id}>
+         <Link href={`/available-services/${availableService.id}`} key={availableService.id}>
           <PublicCard hoverable title={availableService.service.name}>{availableService.slotDate}</PublicCard>
          </Link>
         )

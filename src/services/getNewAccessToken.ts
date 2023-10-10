@@ -12,7 +12,6 @@ export const getNewAccessToken = async (token: string) => {
     const data = await res.json();
     return data;
   } catch (error: any) {
-    console.log(error);
     throw new Error(error.message);
   }
 };

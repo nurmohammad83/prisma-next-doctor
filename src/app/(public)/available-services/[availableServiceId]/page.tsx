@@ -6,10 +6,11 @@ const SingleAvailableServicePublic = async ({
   const res = await fetch(
     `http://localhost:4000/api/v1/available-services/${availableService}`,{
       next:{
-        tags:['available-services']
+        revalidate: 24 * 60 *60,
+        tags:['single-available-service']
       }
     });
-  const data = res.json()
-  return <div>page</div>;
+  const {data} =await res.json()
+  return <div>{data.slotDate}</div>;
 };
 export default SingleAvailableServicePublic;
